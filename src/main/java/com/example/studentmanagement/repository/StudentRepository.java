@@ -10,5 +10,9 @@ import java.util.List;
 public interface StudentRepository extends JpaRepository<Student, Long> {
 
     @Query("SELECT s FROM Student s WHERE s.stack LIKE %:stack%")
-    List<Student> findByStack(@Param("stack") String stack);
+    List<Student> findByStack( String stack);
+
+    List<Student> findByName(String name);
+
+    List<Student> findByCity(String city);
 }

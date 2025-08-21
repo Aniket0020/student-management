@@ -30,6 +30,12 @@ public class StudentService {
         repository.deleteById(id);
     }
 
-    public List<Student> getJavaStack() { return repository.findByStack("Java");
+    public List<Student> getStack(String stack) { return repository.findByStack(stack);
+    }
+
+    public List<Student> getName(String name) { return repository.findByName(name);
+    }
+
+    public List<Student> getCity(String city) { return repository.findByCity(city);
     }
 }

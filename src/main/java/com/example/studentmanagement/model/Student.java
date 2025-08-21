@@ -9,16 +9,18 @@ public class Student {
     private Long id;
     private String name;
     private String email;
+    private String city;
     private int age;
     private String stack;
 
     public Student() {}
 
-    public Student(String name, String email, int age , String stack) {
+    public Student(String name, String email, int age , String stack , String city) {
         this.name = name;
         this.email = email;
         this.age = age;
         this.stack = stack;
+        this.city = city;
     }
 
     public Long getId() {
@@ -50,5 +52,11 @@ public class Student {
     }
     public void setStack(String stack) {
         this.stack = stack;
+    }
+    public String getCity() {
+        return city;
+    }
+    public void seCity(String city) {
+        this.stack = city;
     }
 }
