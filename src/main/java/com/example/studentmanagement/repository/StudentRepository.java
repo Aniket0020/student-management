@@ -5,14 +5,18 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
+
 import java.util.List;
+import java.util.Optional;
+
 
 public interface StudentRepository extends JpaRepository<Student, Long> {
 
-    @Query("SELECT s FROM Student s WHERE s.stack LIKE %:stack%")
-    List<Student> findByStack( String stack);
+    @Query("SELECT s FROM Student s WHERE LOWER(s.stack) LIKE LOWER(CONCAT('%', :stack, '%'))")
+    List<Student> findByStackIgnoreCase(@Param("stack") String stack);
 
-    List<Student> findByName(String name);
+    List<Student> findByNameIgnoreCase(String name);
+    List<Student> findByCityIgnoreCase(String city);
 
-    List<Student> findByCity(String city);
+
 }

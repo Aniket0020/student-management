@@ -8,6 +8,8 @@ import java.util.List;
 
 @Service
 public class StudentService {
+
+
     private final StudentRepository repository;
 
     public StudentService(StudentRepository repository) {
@@ -30,12 +32,12 @@ public class StudentService {
         repository.deleteById(id);
     }
 
-    public List<Student> getStack(String stack) { return repository.findByStack(stack);
+    public List<Student> getStack(String stack) { return repository.findByStackIgnoreCase(stack);
     }
 
-    public List<Student> getName(String name) { return repository.findByName(name);
+    public List<Student> getName(String name) { return repository.findByNameIgnoreCase(name);
     }
 
-    public List<Student> getCity(String city) { return repository.findByCity(city);
+    public List<Student> getCity(String city) { return repository.findByCityIgnoreCase(city);
     }
 }
