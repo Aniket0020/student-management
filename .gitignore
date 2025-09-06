@@ -2,8 +2,7 @@
 .idea/
 *.iml
 out/
-
-.jar.original
+target/
 
 # Logs
 *.log
